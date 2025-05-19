@@ -1,46 +1,222 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>林鸿鑫 · AI产品经理</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林鸿鑫 - 个人主页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <nav>
-      <h1>林鸿鑫</h1>
-      <ul>
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#blog">博客</a></li>
-        <li><a href="#contact">联系</a></li>
-      </ul>
-    </nav>
-  </header>
+<body class="antialiased">
 
-  <main>
-    <section id="about">
-      <h2>关于我</h2>
-      <p>你好，我是林鸿鑫，毕业于中山大学，现在是一名 AI 产品经理，专注于大模型与实际业务融合。</p>
-    </section>
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-blue-600">林鸿鑫</h1>
+            <nav class="space-x-6">
+                <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium nav-link active">关于我</a>
+                <a href="#blog" class="text-gray-700 hover:text-blue-600 font-medium nav-link">博客</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 font-medium nav-link">联系</a>
+            </nav>
+        </div>
+    </header>
 
-    <section id="blog">
-      <h2>博客</h2>
-      <p>我会在这里分享一些关于 AI、产品设计与技术趋势的想法和实践。</p>
-      <ul id="post-list">
-        <li>👉 敬请期待第一篇博客更新！</li>
-      </ul>
-    </section>
+    <main class="container mx-auto px-6 py-12">
 
-    <section id="contact">
-      <h2>联系我</h2>
-      <p>📧 邮箱：<a href="mailto:673794011@qq.com">673794011@qq.com</a></p>
-      <p>🔗 GitHub：<a href="https://github.com/Piratelhx" target="_blank">Piratelhx</a></p>
-    </section>
-  </main>
+        <section id="about" class="mb-16 scroll-mt-20">
+            <div class="card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">关于我</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    你好, 我是林鸿鑫, 毕业于中山大学, 现在是一名 AI 产品经理, 专注于大模型与实际业务融合。
+                    我热衷于探索人工智能的无限可能，并致力于将前沿技术应用于解决实际问题，创造有价值的产品。
+                </p>
+            </div>
+        </section>
 
-  <footer>
-    <p>© 2025 林鸿鑫. 保留所有权利。</p>
-  </footer>
+        <section id="blog" class="mb-16 scroll-mt-20">
+            <div class="card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">博客</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    我会在这里分享一些关于 AI、产品设计与技术趋势的想法和实践。
+                </p>
+                <div class="text-center py-8 border-2 border-dashed border-gray-300 rounded-lg">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <h3 class="mt-2 text-xl font-medium text-gray-900">敬请期待第一篇博客更新!</h3>
+                    <p class="mt-1 text-gray-500">很快就会有新内容了。</p>
+                    <a href="blog/index.html" class="mt-4 inline-block btn-primary font-medium py-2 px-4 rounded-lg text-sm">
+                        访问博客区
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="mb-16 scroll-mt-20">
+            <div class="card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 section-title">联系我</h2>
+                <div class="space-y-6">
+                    <a href="mailto:673794011@qq.com" class="flex items-center text-lg text-gray-700 hover:text-blue-600 group icon-link">
+                        <i class="fas fa-envelope fa-fw mr-3 text-xl text-gray-500 group-hover:text-blue-500"></i>
+                        邮箱: 673794011@qq.com
+                    </a>
+                    <a href="https://github.com/Piratelhx" target="_blank" rel="noopener noreferrer" class="flex items-center text-lg text-gray-700 hover:text-blue-600 group icon-link">
+                        <i class="fab fa-github fa-fw mr-3 text-xl text-gray-500 group-hover:text-blue-500"></i>
+                        GitHub: Piratelhx
+                    </a>
+                </div>
+                <div class="mt-8 text-center">
+                     <button onclick="showContactForm()" class="btn-primary font-medium py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                        给我留言
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div id="contactFormModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex justify-center items-center hidden z-50">
+            <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md mx-auto">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-semibold section-title">给我留言</h3>
+                    <button onclick="hideContactForm()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                </div>
+                <form id="messageForm">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2">您的名字:</label>
+                        <input type="text" id="name" name="name" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700 text-sm font-bold mb-2">您的邮箱:</label>
+                        <input type="email" id="email" name="email" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">留言内容:</label>
+                        <textarea id="message" name="message" rows="4" required class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <button type="submit" class="btn-primary font-medium py-2 px-6 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline">
+                            发送留言
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+         <div id="messageBox" class="fixed bottom-5 right-5 bg-green-500 text-white py-3 px-6 rounded-lg shadow-xl hidden z-50 transition-opacity duration-300">
+            <p id="messageText"></p>
+        </div>
+
+    </main>
+
+    <footer class="footer py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-sm">&copy; <span id="currentYear"></span> 林鸿鑫, 保留所有权利。</p>
+            <p class="text-xs mt-1">本页面使用 Tailwind CSS 构建</p>
+        </div>
+    </footer>
+
+    <script>
+        // 设置当前年份
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 导航链接激活状态切换 和 平滑滚动
+        const navLinks = document.querySelectorAll('nav a.nav-link');
+        const sections = document.querySelectorAll('main section'); // 监控主页的 section
+
+        function changeActiveLink() {
+            let index = sections.length;
+            // 检查当前滚动位置是否在某个 section 内
+            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+            navLinks.forEach((link) => link.classList.remove('active'));
+            // 确保 navLinks[index] 存在，以防 sections 为空或索引越界
+            if (navLinks[index]) {
+                 navLinks[index].classList.add('active');
+            }
+        }
+
+        // 仅在主页面（sections 存在时）运行滚动监听和激活链接逻辑
+        if (sections.length > 0) {
+            changeActiveLink(); // 初始加载时调用
+            window.addEventListener('scroll', changeActiveLink);
+        }
+
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                // 如果是锚点链接 (以 # 开头)
+                if (targetId.startsWith('#')) {
+                    e.preventDefault(); // 阻止默认跳转行为
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                    // 更新激活状态
+                    navLinks.forEach(lnk => lnk.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                // 如果不是锚点链接 (例如指向 blog/index.html), 则不阻止默认行为，允许页面跳转
+            });
+        });
+
+        // 留言表单相关 (确保这些元素存在才执行)
+        const modal = document.getElementById('contactFormModal');
+        const messageForm = document.getElementById('messageForm');
+        const messageBox = document.getElementById('messageBox');
+        const messageText = document.getElementById('messageText');
+
+        function showContactForm() {
+            if(modal) modal.classList.remove('hidden');
+        }
+
+        function hideContactForm() {
+            if(modal) modal.classList.add('hidden');
+            if(messageForm) messageForm.reset(); // 关闭时重置表单
+        }
+
+        if (messageForm) {
+            messageForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // 阻止表单默认提交行为
+                hideContactForm(); // 关闭模态框
+                showMessage("您的留言已成功发送！感谢您的反馈。", "success");
+            });
+        }
+
+
+        function showMessage(message, type = "success") {
+            if (!messageBox || !messageText) return; // 如果元素不存在则不执行
+
+            messageText.textContent = message;
+            messageBox.classList.remove('hidden', 'bg-red-500', 'bg-green-500', 'bg-blue-500');
+
+            if (type === "success") {
+                messageBox.classList.add('bg-green-500');
+            } else if (type === "error") {
+                messageBox.classList.add('bg-red-500');
+            } else {
+                 messageBox.classList.add('bg-blue-500');
+            }
+
+            messageBox.classList.remove('opacity-0');
+            messageBox.classList.add('opacity-100');
+
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100');
+                messageBox.classList.add('opacity-0');
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 300);
+            }, 3000);
+        }
+
+        // 点击模态框外部关闭
+        if (modal) {
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    hideContactForm();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
