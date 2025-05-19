@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客 - 林鸿鑫</title>
+    <title>博客文章 - 林鸿鑫</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -18,53 +19,146 @@
         .content-wrapper {
             flex-grow: 1;
         }
-        .back-link {
-            background-color: #3b82f6;
-            color: white;
-            transition: background-color 0.3s ease;
+        .blog-post-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2.5rem;
         }
-        .back-link:hover {
-            background-color: #2563eb;
+        /* 为 Markdown 生成的内容添加样式 */
+        .blog-post-body h1,
+        .blog-post-body h2,
+        .blog-post-body h3,
+        .blog-post-body h4,
+        .blog-post-body h5,
+        .blog-post-body h6 {
+            color: #1e3a8a; /* 深蓝色标题 */
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
-         .footer {
-            background-color: #1f2937; /* Dark gray footer */
-            color: #e5e7eb; /* Light text for footer */
+        .blog-post-body h1 { font-size: 2.25rem; line-height: 2.5rem; } /* Tailwind text-4xl */
+        .blog-post-body h2 { font-size: 1.875rem; line-height: 2.25rem; } /* Tailwind text-3xl */
+        .blog-post-body h3 { font-size: 1.5rem; line-height: 2rem; }    /* Tailwind text-2xl */
+        .blog-post-body h4 { font-size: 1.25rem; line-height: 1.75rem; } /* Tailwind text-xl */
+
+        .blog-post-body p {
+            line-height: 1.75;
+            margin-bottom: 1rem;
+            text-align: justify; /* 两端对齐 */
         }
+        .blog-post-body strong { font-weight: 600; color: #111827; }
+        .blog-post-body ul, .blog-post-body ol { margin-left: 1.5rem; margin-bottom: 1rem; list-style-position: outside; }
+        .blog-post-body ul { list-style-type: disc; }
+        .blog-post-body ol { list-style-type: decimal; }
+        .blog-post-body li { margin-bottom: 0.5rem; }
+        .blog-post-body a { color: #3b82f6; text-decoration: underline; } /* 蓝色链接 */
+        .blog-post-body a:hover { color: #2563eb; }
+        .blog-post-body blockquote { border-left: 4px solid #d1d5db; padding-left: 1rem; margin-left: 0; margin-bottom: 1rem; font-style: italic; color: #4b5563; } /* 灰色引用边框 */
+        .blog-post-body code { background-color: #e5e7eb; padding: 0.125rem 0.25rem; border-radius: 0.25rem; font-family: monospace; font-size: 0.9em; } /* 行内代码 */
+        .blog-post-body pre { background-color: #1f2937; color: #d1d5db; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; } /* 代码块 */
+        .blog-post-body pre code { background-color: transparent; padding: 0; }
+        .blog-post-meta { color: #6b7280; margin-bottom: 2rem; text-align: center; } /* 博文元信息，如日期 */
+        .footer { background-color: #1f2937; color: #e5e7eb; }
+        .error-message { color: #ef4444; /* red-500 */ text-align: center; padding: 1rem; border: 1px solid #ef4444; border-radius: 0.5rem; background-color: #fee2e2; /* red-100 */}
     </style>
 </head>
 <body class="antialiased">
 
     <header class="bg-white shadow-sm">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-bold text-blue-600 hover:text-blue-700">林鸿鑫 - 主页</a>
-            </div>
+            <a href="../index.html" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors">林鸿鑫 - 主页</a>
+        </div>
     </header>
 
     <main class="content-wrapper container mx-auto px-6 py-12">
-        <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
-            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center text-blue-700">博客文章</h1>
-            
-            <div class="text-center py-10 border-2 border-dashed border-gray-300 rounded-lg">
-                <svg class="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                </svg>
-                <h2 class="mt-4 text-2xl font-medium text-gray-800">暂无博文</h2>
-                <p class="mt-2 text-gray-600">我正在努力撰写第一篇文章，敬请期待！</p>
+        <article id="blog-post-content-area" class="blog-post-container max-w-3xl mx-auto">
+            <header id="blog-post-header" class="text-center mb-8">
+                </header>
+            <div id="markdown-content" class="blog-post-body text-gray-700 text-lg">
+                <p class="text-center text-gray-500">正在加载博文内容...</p>
             </div>
-
-            </div>
+        </article>
     </main>
 
     <footer class="footer py-6 text-center mt-auto">
         <div class="container mx-auto px-6">
             <p class="text-sm">&copy; <span id="blogCurrentYear"></span> 林鸿鑫, 保留所有权利。</p>
-             <a href="../index.html" class="text-sm text-blue-400 hover:text-blue-300">返回主页</a>
+             <a href="../index.html" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">返回主页</a>
         </div>
     </footer>
+
     <script>
         if(document.getElementById('blogCurrentYear')) {
             document.getElementById('blogCurrentYear').textContent = new Date().getFullYear();
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const markdownContentDiv = document.getElementById('markdown-content');
+            const blogPostHeaderDiv = document.getElementById('blog-post-header');
+            
+            const params = new URLSearchParams(window.location.search);
+            let postName = params.get('post');
+
+            if (!postName) {
+                // 如果URL中没有指定post参数，则显示错误信息
+                markdownContentDiv.innerHTML = '<p class="error-message">错误：未指定博文。请通过URL参数 ?post=博文文件名 (不含.md后缀) 来指定要查看的博文。</p>';
+                blogPostHeaderDiv.innerHTML = '<h1 class="text-3xl md:text-4xl font-bold mb-2">错误</h1>';
+                document.title = "博文未找到 - 林鸿鑫";
+                return; // 提前退出，不执行后续fetch
+            }
+
+            // 构建到Markdown文件的路径，假设博文存放在 'posts' 子目录下
+            const postPath = `posts/${postName}.md`; 
+
+            fetch(postPath)
+                .then(response => {
+                    if (!response.ok) {
+                        // 处理HTTP错误 (例如 404 Not Found)
+                        throw new Error(`博文 "${postName}.md" 加载失败。服务器响应: ${response.status} ${response.statusText}`);
+                    }
+                    return response.text(); // 获取响应体文本
+                })
+                .then(markdown => {
+                    // 处理Markdown内容
+                    const lines = markdown.split('\\n');
+                    let title = `博文: ${postName}`; // 默认标题
+                    let contentMarkdown = markdown;
+
+                    // 尝试从第一行提取H1标题 (例如 "# 标题")
+                    if (lines[0] && lines[0].startsWith('# ')) {
+                        title = lines[0].substring(2).trim();
+                        // 从待解析内容中移除第一行标题，以避免重复显示
+                        lines.shift(); 
+                        contentMarkdown = lines.join('\\n');
+                    }
+                    
+                    // 更新浏览器标签页的标题
+                    document.title = `${title} - 林鸿鑫`; 
+                    
+                    // 填充博文头部（标题和元信息）
+                    let headerHTML = `<h1 class="text-3xl md:text-4xl font-bold mb-2">${title}</h1>`;
+                    // 日期为占位符，实际应用中可能来自front-matter或文件名约定
+                    const hypotheticalDate = "2025年5月19日"; // TODO: 使日期动态化
+                    headerHTML += `<p class="text-sm blog-post-meta">发布日期: ${hypotheticalDate}</p>`;
+                    blogPostHeaderDiv.innerHTML = headerHTML;
+
+                    // 解析并显示（可能已移除标题的）Markdown内容
+                    if (typeof marked !== 'undefined') {
+                        markdownContentDiv.innerHTML = marked.parse(contentMarkdown);
+                    } else {
+                        console.error('Marked.js library is not loaded.');
+                        markdownContentDiv.innerHTML = '<p class="error-message">错误：Markdown解析库未能加载。</p>';
+                    }
+                })
+                .catch(error => {
+                    // 处理fetch操作或后续处理中的错误
+                    console.error('加载或解析 Markdown 出错:', error);
+                    markdownContentDiv.innerHTML = `<p class="error-message">抱歉，加载博文 "${postName}.md" 时遇到问题。<br>请检查博文文件是否存在于 'posts' 目录下且文件名正确。<br>错误详情: ${error.message}</p>`;
+                    blogPostHeaderDiv.innerHTML = `<h1 class="text-3xl md:text-4xl font-bold mb-2">无法加载博文</h1>`;
+                    document.title = "加载错误 - 林鸿鑫";
+                });
+        });
     </script>
 </body>
 </html>
