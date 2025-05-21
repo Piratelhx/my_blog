@@ -186,9 +186,7 @@
                         <a href="blog/index.html" class="nav-link text-gray-800 dark:text-gray-200 font-medium">博客</a>
                         <!-- 移除了联系方式链接 -->
                     </nav>
-                    <div class="dark-mode-toggle" id="darkModeToggle">
-                        <div class="toggle-handle"></div>
-                    </div>
+                    <!-- 移除了暗黑模式切换按钮 -->
                     <button class="md:hidden focus:outline-none text-gray-800 dark:text-gray-200">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -372,32 +370,7 @@
             document.getElementById('scrollIndicator').style.width = scrolled + '%';
         });
         
-        // 暗黑模式切换
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // 检查本地存储中的暗黑模式设置
-        if (localStorage.getItem('darkMode') === 'true') {
-            body.classList.add('dark');
-            darkModeToggle.classList.add('active');
-        } else if (localStorage.getItem('darkMode') === 'false') {
-            body.classList.remove('dark');
-            body.classList.remove('auto-dark');
-            darkModeToggle.classList.remove('active');
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            
-            if (this.classList.contains('active')) {
-                body.classList.add('dark');
-                body.classList.remove('auto-dark');
-                localStorage.setItem('darkMode', 'true');
-            } else {
-                body.classList.remove('dark');
-                localStorage.setItem('darkMode', 'false');
-            }
-        });
+        // 移除了暗黑模式切换相关代码
     </script>
 </body>
 </html>
