@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google I/O之后，AI大局已变 - 昨夜西风</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Serif SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .hero-section {
+            background: #000000;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .nav-link {
+            transition: all 0.2s ease;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.2s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #000;
+        }
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .article-content {
+            line-height: 1.8;
+        }
+        .article-content h2 {
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: #3b82f6;
+            z-index: 1000;
+            width: 0%;
+        }
+        @media (prefers-color-scheme: dark) {
+            body.auto-dark {
+                background-color: #111827;
+                color: #f3f4f6;
+            }
+            body.auto-dark .nav-link {
+                color: #e5e7eb;
+            }
+            body.auto-dark .nav-link:after {
+                background-color: #fff;
+            }
+            body.auto-dark .nav-link:hover {
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased auto-dark">
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+    
+    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-black dark:text-white flex items-center">
+                    <span>昨夜西风</span>
+                </a>
+                <div class="flex items-center space-x-8">
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="../index.html#about" class="nav-link text-gray-800 dark:text-gray-200 font-medium">关于我</a>
+                        <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 font-medium">博客</a>
+                    </nav>
+                    <div class="dark-mode-toggle" id="darkModeToggle">
+                        <div class="toggle-handle"></div>
+                    </div>
+                    <button class="md:hidden focus:outline-none text-gray-800 dark:text-gray-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 max-w-4xl">
+        <article>
+            <header class="mb-12">
+                <div class="mb-6">
+                    <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">人工智能</span>
+                    <span class="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full ml-2">行业分析</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Google I/O之后，AI大局已变</h1>
+                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <span class="flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
+                        2025年5月21日
+                    </span>
+                </div>
+            </header>
+
+            <div class="article-content text-gray-700 dark:text-gray-300">
+                <p>昨夜看完 Google I/O，补完了全程，信息量足够大，体验上也确实"管饱"。但相比于技术演示带来的震撼，更值得反复咀嚼的，是几个藏在细节里的趋势转折点。</p>
+
+                <h2 class="text-gray-900 dark:text-white">01｜Chatbot不是终局，"瑞士军刀化"才是方向</h2>
+                <p>去年字节团队提出过一个判断：Chatbot 不是 AI 的终极形态。当时不乏质疑声音，现在来看，这个判断反而是站得住脚的。</p>
+                <p>但看穿幻象和给出解法，是两件事。眼下来看，最现实的解法，是构建全栈式的服务体系——不再强调单一应用场景，而是把AI变成一把"瑞士军刀"。谁掌握了场景联动和服务整合的能力，谁就拿到了门票。</p>
+                <p>一个Chatbot能多聪明，远不如一个系统能多懂你。</p>
+
+                <h2 class="text-gray-900 dark:text-white">02｜OpenAI的"记忆力"是新时代的关系链</h2>
+                <p>Sam 一直强调 ChatGPT 的"长期记忆"。不少人以为这是在改善体验，实际上是在构筑粘性。</p>
+                <p>记忆系统是新时代的"社交关系链"——不同于Facebook时代那种可迁移的用户资产，这一次，AI对你的熟悉程度，不可转移，也不可复制。这是一种更深层次的"绑定"。</p>
+                <p>OpenAI显然意识到了这一点，但问题来了：绑定用户之后，要如何兑现商业价值？</p>
+
+                <h2 class="text-gray-900 dark:text-white">03｜Codex已老，GPT-5未到，OpenAI"子弹不足"</h2>
+                <p>这次照例轮到 OpenAI"抢戏"。但从拿 Codex 出来"旧瓶装新酒"就能看出，现在的弹药可能真的不够用了。</p>
+                <p>GPT-5 被吊足了市场胃口，但它迟迟未到。在 Google 已经在原地画圈多年后突然"觉醒"的当下，OpenAI 的压力陡增——不是因为它做得不好，而是因为对手终于开始认真了。</p>
+                <p>认真到什么程度？看看 Google 这次的搜索改造就知道了。</p>
+
+                <h2 class="text-gray-900 dark:text-white">04｜Google对搜索动刀，是All In也是豪赌</h2>
+                <p>Google 做了什么？它把 AI 模式默认开在北美市场、把搜索按钮挪到一边，核心产品体系做了结构性调整。</p>
+                <p>这是在拿自己的商业模式开刀。谁都知道 Search 是 Google 的印钞机，这一刀下去，不是简单的"功能创新"，而是商业逻辑的重写。</p>
+                <p>后果如何？看看接下来四个季度的财报就知道了。如果它能跑通，那么所有"以广告为根基的平台产品"，都得重新洗牌。</p>
+
+                <h2 class="text-gray-900 dark:text-white">05｜国产厂商卷的是价格，不是能力</h2>
+                <p>这时候你再看国内AI厂商，问题更显棘手。</p>
+                <p>没有坚实的SaaS生态、没有定价体系支撑，一边压成本，一边守不住价格——这种商业结构最怕的，就是"用户免费，企业不付"。</p>
+                <p>"用户本身就是商业模式"的逻辑，在移动互联网时代勉强说得过去，但在AI时代已经完全站不住脚。重要的事情说三遍，不是、不是、不是。</p>
+
+                <h2 class="text-gray-900 dark:text-white">06｜视频生成大战，今年只看前半场</h2>
+                <p>可灵 2.0 目前在能力和用量上仍然领先。但 Veo 3 一出，快手立刻腹背受敌。视频生成正在成为今年AI赛道中最确定的爆发方向，而这个方向的核心问题是：领先者的位置，没有人坐得稳。</p>
+                <p>技术进展快、门槛不断拉低，"第一"永远是暂时的。</p>
+
+                <h2 class="text-gray-900 dark:text-white">07｜基础模型"后继乏力"，技术断层越来越难找</h2>
+                <p>从时间线看，DeepSeek-R2 实际上已经跳票。阿里的通义也差不多打完了底牌。字节的 Seed 是目前为数不多还有悬念的选手。</p>
+                <p>但就连"还有多少突破空间"这件事，也越来越让人怀疑。断层越来越少，模型越来越像商品，行业的想象力进入稀缺期。</p>
+
+                <h2 class="text-gray-900 dark:text-white">08｜Perplexity像金丝雀，行业还有希望？</h2>
+                <p>很多人对 Perplexity 不屑一顾，认为它这种产品注定第一个被大厂碾压。但它偏偏活得很好，用户增长平稳、财务控制严格，没有花哨、没有炒作。</p>
+                <p>这家公司更像煤矿里的金丝雀——它的活跃，至少说明了行业还没有进入"赢家通吃"的无趣阶段。</p>
+                <p>一旦Perplexity这类公司都不再具备生存空间，才是真正的"终局"。</p>
+
+                <h2 class="text-gray-900 dark:text-white">09｜六小龙还不卖，是没人接盘了？</h2>
+                <p>最后说点轻的。</p>
+                <p>还没"卖掉"的几家国产大模型团队，还在坚持。这不是因为他们不想卖，而是没有人愿意接。</p>
+                <p>至于是还在等清明节？还是下一个估值复苏窗口？谁知道呢。现实比段子更尖锐：没人接盘，也就没人清盘。</p>
+
+                <h2 class="text-gray-900 dark:text-white">写在最后</h2>
+                <p>AI行业已不再是技术人的竞技场，它是商业逻辑、成本结构、用户认知的多维战役。</p>
+                <p>Google这次走了一步大棋，OpenAI仍在蓄力，国内玩家忙着卷价格、赌政策、拼续命。</p>
+                <p>终局远未到来，但牌桌的气氛，已经变了。</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer py-16 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <a href="../index.html" class="text-2xl font-bold text-white mb-8 inline-block">昨夜西风</a>
+                <p class="text-sm mb-8 opacity-80">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
+                <div class="flex justify-center space-x-8 mb-8">
+                    <a href="../index.html" class="text-gray-400 hover:text-white transition duration-300">
+                        <span class="sr-only">首页</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"></path>
+                        </svg>
+                    </a>
+                    <a href="index.html" class="text-gray-400 hover:text-white transition duration-300">
+                        <span class="sr-only">博客</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // 滚动指示器
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollIndicator').style.width = scrolled + '%';
+        });
+        
+        // 暗黑模式切换
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        
+        // 检查本地存储中的暗黑模式设置
+        if (localStorage.getItem('darkMode') === 'true') {
+            body.classList.add('dark');
+            darkModeToggle.classList.add('active');
+        } else if (localStorage.getItem('darkMode') === 'false') {
+            body.classList.remove('dark');
+            body.classList.remove('auto-dark');
+            darkModeToggle.classList.remove('active');
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            
+            if (this.classList.contains('active')) {
+                body.classList.add('dark');
+                body.classList.remove('auto-dark');
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            }
+        });
+    </script>
+</body>
+</html>
