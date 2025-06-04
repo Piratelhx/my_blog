@@ -4,100 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAG系统构建的核心技术要素 - 昨夜西风</title>
+    <meta name="description" content="深入探讨RAG系统构建中的关键技术组件和优化策略">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* 移动端阅读优化样式 */
+        @media (max-width: 768px) {
+            .article-content {
+                font-size: 17px !important;
+                line-height: 1.7 !important;
+                letter-spacing: 0.3px;
+            }
+            
+            .article-content p {
+                margin-bottom: 1.2rem !important;
+                text-align: justify;
+            }
+            
+            .article-content h1 {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+                margin: 1.5rem 0 1rem 0 !important;
+                font-weight: 700;
+            }
+            
+            .article-content h2 {
+                font-size: 1.4rem !important;
+                line-height: 1.4 !important;
+                margin: 1.5rem 0 0.8rem 0 !important;
+                font-weight: 600;
+            }
+            
+            .article-content h3 {
+                font-size: 1.2rem !important;
+                line-height: 1.4 !important;
+                margin: 1.2rem 0 0.6rem 0 !important;
+                font-weight: 600;
+            }
+            
+            .article-content ul, .article-content ol {
+                margin: 1rem 0 1.2rem 0 !important;
+                padding-left: 1.2rem !important;
+            }
+            
+            .article-content li {
+                margin-bottom: 0.6rem !important;
+                line-height: 1.6 !important;
+            }
+            
+            .article-content strong {
+                font-weight: 600;
+                color: #1f2937;
+            }
+            
+            .dark .article-content strong {
+                color: #f9fafb;
+            }
+            
+            /* 标签样式优化 */
+            .article-content .tag {
+                display: inline-block;
+                padding: 0.25rem 0.75rem;
+                margin: 0.25rem 0.25rem 0.25rem 0;
+                background-color: #f3f4f6;
+                color: #374151;
+                border-radius: 1rem;
+                font-size: 0.75rem;
+                font-weight: 500;
+            }
+            
+            .dark .article-content .tag {
+                background-color: #374151;
+                color: #d1d5db;
+            }
+            
+            /* 容器宽度优化 */
+            .container {
+                max-width: 100% !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            main {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+            }
+            
+            /* 背景色优化 */
+            body {
+                background-color: #fefefe;
+            }
+            
+            .dark body {
+                background-color: #111827;
+            }
+        }
+        
+        /* 桌面端保持原有样式 */
+        @media (min-width: 769px) {
+            .article-content {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+        }
+        
+        /* 其他原有样式保持不变 */
         body {
-            font-family: 'Inter', 'Noto Serif SC', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #ffffff;
-            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-        .hero-section {
-            background: #000000;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
-        }
-        .nav-link {
-            transition: all 0.2s ease;
-            position: relative;
-            letter-spacing: -0.01em;
-        }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -2px;
-            left: 0;
-            background-color: #000;
-            transition: width 0.2s ease;
-        }
-        .nav-link:hover:after {
-            width: 100%;
-        }
-        .nav-link:hover {
-            color: #000;
-        }
-        .footer {
-            background-color: #000000;
-            color: #ffffff;
-        }
-        .article-content {
-            line-height: 1.8;
-        }
-        .article-content h2 {
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-        .article-content ul {
-            list-style-type: disc;
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .article-content li {
-            margin-bottom: 0.5rem;
-        }
+        
         .scroll-indicator {
             position: fixed;
             top: 0;
             left: 0;
-            height: 2px;
-            background: #3b82f6;
-            z-index: 1000;
             width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            z-index: 9999;
+            transition: width 0.3s ease;
         }
-        @media (prefers-color-scheme: dark) {
-            body.auto-dark {
-                background-color: #111827;
-                color: #f3f4f6;
-            }
-            body.auto-dark .nav-link {
-                color: #e5e7eb;
-            }
-            body.auto-dark .nav-link:after {
-                background-color: #fff;
-            }
-            body.auto-dark .nav-link:hover {
-                color: #fff;
-            }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dark-mode-toggle {
+            width: 50px;
+            height: 25px;
+            background-color: #e5e7eb;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dark-mode-toggle.active {
+            background-color: #3b82f6;
+        }
+        
+        .toggle-handle {
+            width: 21px;
+            height: 21px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dark-mode-toggle.active .toggle-handle {
+            transform: translateX(25px);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .article-content h1, .article-content h2, .article-content h3 {
+            color: #1f2937;
+        }
+        
+        .dark .article-content h1, .dark .article-content h2, .dark .article-content h3 {
+            color: #f9fafb;
+        }
+        
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
-<body class="antialiased auto-dark">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
     <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
@@ -143,7 +251,7 @@
             <div class="article-content text-gray-700 dark:text-gray-300">
                 <p>Retrieval-Augmented Generation（RAG）系统在构建过程中涉及多个关键技术组件，包括文本切分（Chunking）、嵌入模型选择、检索融合策略以及提示词（Prompt）设计与评估。本文将对这些核心要素进行系统梳理，帮助开发者优化RAG系统的性能。</p>
 
-                <h2 class="text-gray-900 dark:text-white">📚 文本切分（Chunking）策略</h2>
+                <h2>📚 文本切分（Chunking）策略</h2>
                 <p>在RAG系统中，文本切分策略直接影响检索的相关性和生成的准确性。常见的切分方法包括：</p>
                 <ul>
                     <li><strong>固定长度切分</strong>：将文本按照预定义的长度（如500个词）进行切分，简单高效，但可能割裂语义。</li>
@@ -154,9 +262,9 @@
                 </ul>
                 <p>实际应用中，常采用"固定长度 + 语义结构优先"的混合策略，以在效率和效果之间取得平衡。</p>
 
-                <h2 class="text-gray-900 dark:text-white">🔍 嵌入模型选择与维度设定</h2>
+                <h2>🔍 嵌入模型选择与维度设定</h2>
                 <p>嵌入模型的选择和向量维度的设定对RAG系统的检索性能至关重要。</p>
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">模型选择</h3>
+                <h3>模型选择</h3>
                 <p>选择嵌入模型时，应考虑以下因素：</p>
                 <ul>
                     <li><strong>语言支持</strong>：确保模型支持所处理的语言（如中文、英文）。</li>
@@ -166,7 +274,7 @@
                 </ul>
                 <p>例如，all-MiniLM-L6-v2是一个广泛使用的嵌入模型，具有384维的向量表示，适用于多种通用任务。</p>
                 
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">向量维度</h3>
+                <h3>向量维度</h3>
                 <p>向量维度影响嵌入的表达能力和计算效率：</p>
                 <ul>
                     <li><strong>低维度（如384）</strong>：计算效率高，适用于资源受限的场景。</li>
@@ -175,26 +283,26 @@
                 </ul>
                 <p>应根据具体应用需求和资源限制选择合适的向量维度。</p>
 
-                <h2 class="text-gray-900 dark:text-white">🔄 检索融合与重排序（Reranking）</h2>
+                <h2>🔄 检索融合与重排序（Reranking）</h2>
                 <p>为了提高检索的相关性，RAG系统常结合稀疏检索（如BM25）和密集检索（如向量相似度）的方法，并引入重排序机制。</p>
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">融合策略</h3>
+                <h3>融合策略</h3>
                 <ul>
                     <li><strong>级联检索（Cascading Retrieval）</strong>：先使用BM25快速生成候选集，再通过密集检索模型进行精细排序。</li>
                     <li><strong>并行检索与交集</strong>：同时使用BM25和密集检索，取其结果的交集或并集，提高召回率和精度。</li>
                     <li><strong>互惠排名融合（Reciprocal Rank Fusion, RRF）</strong>：结合多个检索模型的排名结果，计算每个文档的综合得分，实现更稳健的排序。</li>
                 </ul>
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">重排序模型</h3>
+                <h3>重排序模型</h3>
                 <p>重排序模型（如bge-reranker-base）在初步检索后，对候选文档进行更精细的相关性评估，提升最终结果的质量。</p>
 
-                <h2 class="text-gray-900 dark:text-white">✍️ 提示词设计与评估</h2>
+                <h2>✍️ 提示词设计与评估</h2>
                 <p>提示词的设计直接影响生成模型的输出质量。</p>
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">设计原则</h3>
+                <h3>设计原则</h3>
                 <ul>
                     <li><strong>明确指令</strong>：清晰地指示模型的任务和角色。</li>
                     <li><strong>上下文提供</strong>：提供足够的背景信息，帮助模型理解问题。</li>
                     <li><strong>输出格式</strong>：指定所需的输出结构，确保一致性。</li>
                 </ul>
-                <h3 class="font-semibold mt-4 mb-2 text-gray-900 dark:text-white">评估方法</h3>
+                <h3>评估方法</h3>
                 <p>为了评估提示词的效果，可采用以下指标：</p>
                 <ul>
                     <li><strong>命中率（Hit Rate）</strong>：衡量生成答案中包含正确信息的比例。</li>
@@ -202,7 +310,7 @@
                 </ul>
                 <p>工具如RAGAS提供了一套评估指标，用于检测RAG系统中的幻觉现象。</p>
 
-                <p class="mt-8">通过合理的文本切分策略、嵌入模型选择、检索融合方法以及提示词设计与评估，开发者可以显著提升RAG系统的性能和输出质量。</p>
+                <p>通过合理的文本切分策略、嵌入模型选择、检索融合方法以及提示词设计与评估，开发者可以显著提升RAG系统的性能和输出质量。</p>
             </div>
         </article>
     </main>
