@@ -3,153 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客 - 昨夜西风</title>
+    <title>博客文章 - 昨夜西风</title>
+    <meta name="description" content="昨夜西风的技术博客，分享AI、产品设计和技术思考">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        .content-wrapper {
-            flex-grow: 1;
-        }
-        .back-link {
-            background-color: #3b82f6;
-            color: white;
-            transition: background-color 0.3s ease;
-        }
-        .back-link:hover {
-            background-color: #2563eb;
-        }
-        .footer {
-            background-color: #1f2937; /* Dark gray footer */
-            color: #e5e7eb; /* Light text for footer */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         .blog-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="antialiased">
-
+<body class="bg-gray-50">
     <header class="bg-white shadow-sm">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="../index.html" class="text-xl font-bold text-blue-600 hover:text-blue-700">昨夜西风 - 主页</a>
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-black">昨夜西风</a>
+                <nav class="space-x-8">
+                    <a href="../index.html#about" class="text-gray-600 hover:text-black">关于我</a>
+                    <a href="index.html" class="text-black font-medium">博客</a>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <main class="content-wrapper container mx-auto px-6 py-12">
-        <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg">
-            <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center text-blue-700">博客文章</h1>
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold mb-8 text-center">博客文章</h1>
             
-            <!-- 替换原来的"暂无博文"为博客列表 -->
-            <div class="grid grid-cols-1 gap-8">
-                <!-- AI与UI张力文章卡片 -->
-                <a href="ai-ui-tension.html" class="blog-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-blue-500">
+            <div class="grid gap-8">
+                <!-- 产品经理的修炼之道 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">AI与UI的张力：人性化与掌控感</h2>
-                            <span class="text-sm text-gray-500">2025-06-04</span>
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-purple-50 text-purple-800 text-xs font-medium rounded-full">产品管理</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">职业成长</span>
+                            <span class="ml-auto text-sm text-gray-500">2025-06-09</span>
                         </div>
-                        <p class="text-gray-600 mb-4">探讨AI发展下UI的演变，以及在极简体验与用户掌控感之间寻求平衡的重要性</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">AI</span>
-                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">UI</span>
-                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">用户体验</span>
-                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">设计</span>
-                        </div>
-                        <div class="mt-4 text-blue-600 font-medium">阅读全文 →</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="product-manager-cultivation.html" class="text-gray-900 hover:text-blue-600">产品经理的修炼之道</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">深度探讨产品经理成长的六个核心要素：广泛阅读、深度同理心、包容三教九流、培养审美、快速反应和服务意识。成为优秀产品经理的必经之路。</p>
+                        <a href="product-manager-cultivation.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
                     </div>
-                </a>
+                </article>
 
-                <!-- Google I/O文章卡片 -->
-                <a href="ai-landscape-after-google-io.html" class="blog-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-blue-500">
+                <!-- AI与UI的张力 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">Google I/O之后，AI大局已变</h2>
-                            <span class="text-sm text-gray-500">2025-05-21</span>
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded-full">人工智能</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">用户体验</span>
+                            <span class="ml-auto text-sm text-gray-500">2025-06-04</span>
                         </div>
-                        <p class="text-gray-600 mb-4">探讨Google I/O大会后AI行业的趋势转折点，从Chatbot的终局形态到商业模式重构的深度分析</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">人工智能</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">行业分析</span>
-                        </div>
-                        <div class="mt-4 text-blue-600 font-medium">阅读全文 →</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="ai-ui-tension.html" class="text-gray-900 hover:text-blue-600">AI与UI的张力：人性化与掌控感</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">探讨AI时代用户界面设计的核心矛盾：如何在简化操作的同时保持用户的掌控感，以及这种平衡对产品设计的深远影响。</p>
+                        <a href="ai-ui-tension.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
                     </div>
-                </a>
+                </article>
 
-                <!-- AI产品经理文章卡片 -->
-                <a href="ai-product-manager.html" class="blog-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-blue-500">
+                <!-- 小米SU7事故 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">AI产品经理：风口还是泡沫？</h2>
-                            <span class="text-sm text-gray-500">2025-05-10</span>
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-red-50 text-red-800 text-xs font-medium rounded-full">汽车科技</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">事故分析</span>
+                            <span class="ml-auto text-sm text-gray-500">2024-04-15</span>
                         </div>
-                        <p class="text-gray-600 mb-4">从实战视角拆解AI产品经理的底层逻辑，以及它为何会成为未来十年最"抗周期"的职业之一</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">人工智能</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">职业发展</span>
-                        </div>
-                        <div class="mt-4 text-blue-600 font-medium">阅读全文 →</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="xiaomi-su7-accident.html" class="text-gray-900 hover:text-blue-600">小米SU7事故分析与思考</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">深入分析小米SU7交通事故的技术原因，探讨智能汽车安全设计的重要性和未来发展方向。</p>
+                        <a href="xiaomi-su7-accident.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
                     </div>
-                </a>
+                </article>
 
-                <!-- 小米SU7博客文章卡片 -->
-                <a href="xiaomi-su7-accident.html" class="blog-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-blue-500">
+                <!-- Google I/O 2024后的AI格局变化 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">小米SU7事故背后：是刹车门重演，还是舆论的智能驾驶"试驾"？</h2>
-                            <span class="text-sm text-gray-500">2025-05-01</span>
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded-full">人工智能</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">行业分析</span>
+                            <span class="ml-auto text-sm text-gray-500">2024-05-20</span>
                         </div>
-                        <p class="text-gray-600 mb-4">探讨小米SU7追尾事故引发的舆论风波，以及智能驾驶技术面临的挑战与责任</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">小米</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">SU7</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">智能驾驶</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">汽车安全</span>
-                        </div>
-                        <div class="mt-4 text-blue-600 font-medium">阅读全文 →</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="ai-landscape-after-google-io.html" class="text-gray-900 hover:text-blue-600">Google I/O 2024后的AI格局变化</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">深度分析Google I/O 2024发布会对AI行业格局的影响，从Gemini升级到AI搜索革命的全面解读。</p>
+                        <a href="ai-landscape-after-google-io.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
                     </div>
-                </a>
+                </article>
 
-                <!-- RAG系统文章卡片 -->
-                <a href="rag-system-optimization.html" class="blog-card block bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-blue-500">
+                <!-- AI产品经理 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
                     <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h2 class="text-xl font-bold text-gray-900 mb-2">RAG系统构建的核心技术要素</h2>
-                            <span class="text-sm text-gray-500">2024-10-15</span>
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-green-50 text-green-800 text-xs font-medium rounded-full">产品管理</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">人工智能</span>
+                            <span class="ml-auto text-sm text-gray-500">2024-03-10</span>
                         </div>
-                        <p class="text-gray-600 mb-4">探讨Retrieval-Augmented Generation系统构建中的文本切分、嵌入模型选择、检索融合策略及提示词设计等关键技术</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">人工智能</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">技术研究</span>
-                        </div>
-                        <div class="mt-4 text-blue-600 font-medium">阅读全文 →</div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="ai-product-manager.html" class="text-gray-900 hover:text-blue-600">AI时代的产品经理</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">探讨AI时代产品经理的角色转变、核心技能要求以及如何在AI浪潮中保持竞争力。</p>
+                        <a href="ai-product-manager.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
                     </div>
-                </a>
+                </article>
+
+                <!-- RAG系统构建的核心技术要素 -->
+                <article class="blog-card bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-medium rounded-full">人工智能</span>
+                            <span class="inline-block px-3 py-1 bg-gray-50 text-gray-800 text-xs font-medium rounded-full ml-2">技术研究</span>
+                            <span class="ml-auto text-sm text-gray-500">2024-10-15</span>
+                        </div>
+                        <h2 class="text-xl font-bold mb-3">
+                            <a href="rag-system-optimization.html" class="text-gray-900 hover:text-blue-600">RAG系统构建的核心技术要素</a>
+                        </h2>
+                        <p class="text-gray-600 mb-4">深入探讨RAG系统构建中的关键技术组件，包括文本切分、嵌入模型选择、检索融合策略以及提示词设计与评估。</p>
+                        <a href="rag-system-optimization.html" class="text-blue-600 hover:text-blue-800 font-medium">阅读全文 →</a>
+                    </div>
+                </article>
             </div>
         </div>
     </main>
 
-    <footer class="footer py-6 text-center mt-auto">
-        <div class="container mx-auto px-6">
-            <p class="text-sm">&copy; <span id="blogCurrentYear"></span> 昨夜西风, 保留所有权利。</p>
-            <a href="../index.html" class="text-sm text-blue-400 hover:text-blue-300">返回主页</a>
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
         </div>
     </footer>
+
     <script>
-        if(document.getElementById('blogCurrentYear')) {
-            document.getElementById('blogCurrentYear').textContent = new Date().getFullYear();
-        }
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
