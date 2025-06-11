@@ -3,252 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAG系统构建的核心技术要素 - 昨夜西风</title>
+    <title>🔧 RAG系统构建的核心技术要素 - 昨夜西风</title>
     <meta name="description" content="深入探讨RAG系统构建中的关键技术组件和优化策略">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 移动端阅读优化样式 */
-        @media (max-width: 768px) {
-            .article-content {
-                font-size: 17px !important;
-                line-height: 1.7 !important;
-                letter-spacing: 0.3px;
-            }
-            
-            .article-content p {
-                margin-bottom: 1.2rem !important;
-                text-align: justify;
-            }
-            
-            .article-content h1 {
-                font-size: 1.75rem !important;
-                line-height: 1.3 !important;
-                margin: 1.5rem 0 1rem 0 !important;
-                font-weight: 700;
-            }
-            
-            .article-content h2 {
-                font-size: 1.4rem !important;
-                line-height: 1.4 !important;
-                margin: 1.5rem 0 0.8rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content h3 {
-                font-size: 1.2rem !important;
-                line-height: 1.4 !important;
-                margin: 1.2rem 0 0.6rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content ul, .article-content ol {
-                margin: 1rem 0 1.2rem 0 !important;
-                padding-left: 1.2rem !important;
-            }
-            
-            .article-content li {
-                margin-bottom: 0.6rem !important;
-                line-height: 1.6 !important;
-            }
-            
-            .article-content strong {
-                font-weight: 600;
-                color: #1f2937;
-            }
-            
-            .dark .article-content strong {
-                color: #f9fafb;
-            }
-            
-            /* 标签样式优化 */
-            .article-content .tag {
-                display: inline-block;
-                padding: 0.25rem 0.75rem;
-                margin: 0.25rem 0.25rem 0.25rem 0;
-                background-color: #f3f4f6;
-                color: #374151;
-                border-radius: 1rem;
-                font-size: 0.75rem;
-                font-weight: 500;
-            }
-            
-            .dark .article-content .tag {
-                background-color: #374151;
-                color: #d1d5db;
-            }
-            
-            /* 容器宽度优化 */
-            .container {
-                max-width: 100% !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            
-            main {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-            }
-            
-            /* 背景色优化 */
-            body {
-                background-color: #fefefe;
-            }
-            
-            .dark body {
-                background-color: #111827;
-            }
-        }
-        
-        /* 桌面端保持原有样式 */
-        @media (min-width: 769px) {
-            .article-content {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-        }
-        
-        /* 其他原有样式保持不变 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: #1f2937;
+            line-height: 1.6;
         }
         
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            z-index: 9999;
-            transition: width 0.3s ease;
+        .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
         
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
+        .back-link {
+            display: inline-flex;
+            align-items: center;
             color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            transition: color 0.2s;
         }
         
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .dark-mode-toggle {
-            width: 50px;
-            height: 25px;
-            background-color: #e5e7eb;
-            border-radius: 25px;
-            position: relative;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .dark-mode-toggle.active {
-            background-color: #3b82f6;
-        }
-        
-        .toggle-handle {
-            width: 21px;
-            height: 21px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dark-mode-toggle.active .toggle-handle {
-            transform: translateX(25px);
+        .back-link:hover {
+            color: #2563eb;
         }
         
         .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.875rem;
         }
         
-        .article-content h1, .article-content h2, .article-content h3 {
-            color: #1f2937;
+        .footer a {
+            color: #3b82f6;
+            text-decoration: none;
         }
         
-        .dark .article-content h1, .dark .article-content h2, .dark .article-content h3 {
-            color: #f9fafb;
+        .footer a:hover {
+            text-decoration: underline;
         }
         
-        .article-content p {
+        /* 博客内容样式 */
+        .blog-content h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
         
-        .article-content ul, .article-content ol {
-            margin: 1rem 0;
+        .blog-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #111827;
+            margin: 1.5rem 0 0.75rem 0;
+            line-height: 1.3;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.25rem;
+            color: #374151;
+        }
+        
+        .blog-content ul, .blog-content ol {
+            margin: 1.25rem 0;
             padding-left: 1.5rem;
         }
         
-        .article-content li {
+        .blog-content li {
             margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .blog-content strong {
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 1.5rem 1rem;
+            }
+            
+            .blog-content h1 {
+                font-size: 1.875rem;
+            }
+            
+            .blog-content h2 {
+                font-size: 1.375rem;
+            }
+            
+            .blog-content h3 {
+                font-size: 1.125rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-wrapper {
+                padding: 1rem 0.75rem;
+            }
+            
+            .blog-content h1 {
+                font-size: 1.75rem;
+            }
+            
+            .blog-content h2 {
+                font-size: 1.25rem;
+            }
+        }
+        
+        /* 文章容器 */
+        .article-container {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .article-header {
+            padding: 2rem 0 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+        }
+        
+        .article-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        /* 移动端文章样式优化 */
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 1.875rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-title {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-    <div class="scroll-indicator" id="scrollIndicator"></div>
-    
-    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-2xl font-bold text-black dark:text-white flex items-center">
-                    <span>昨夜西风</span>
-                </a>
-                <div class="flex items-center space-x-8">
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="../index.html#about" class="nav-link text-gray-800 dark:text-gray-200 font-medium">关于我</a>
-                        <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 font-medium">博客</a>
-                    </nav>
-                    <div class="dark-mode-toggle" id="darkModeToggle">
-                        <div class="toggle-handle"></div>
-                    </div>
-                    <button class="md:hidden focus:outline-none text-gray-800 dark:text-gray-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <article>
-            <header class="mb-12">
-                <div class="mb-6">
-                    <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">人工智能</span>
-                    <span class="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full ml-2">技术研究</span>
-                </div>
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">RAG系统构建的核心技术要素</h1>
-                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                        2024年10月15日
-                    </span>
+<body>
+    <div class="content-wrapper">
+        <a href="index.html" class="back-link">
+            ← 返回博客
+        </a>
+        
+        <div class="article-container">
+            <header class="article-header">
+                <h1 class="article-title">🔧 RAG系统构建的核心技术要素</h1>
+                <div class="article-meta">2024年10月15日</div>
+                <div class="article-tags">
+                    <span class="tag">人工智能</span>
+                    <span class="tag">技术研究</span>
                 </div>
             </header>
-
-            <div class="article-content text-gray-700 dark:text-gray-300">
+            
+            <div class="blog-content">
                 <p>Retrieval-Augmented Generation（RAG）系统在构建过程中涉及多个关键技术组件，包括文本切分（Chunking）、嵌入模型选择、检索融合策略以及提示词（Prompt）设计与评估。本文将对这些核心要素进行系统梳理，帮助开发者优化RAG系统的性能。</p>
 
                 <h2>📚 文本切分（Chunking）策略</h2>
@@ -312,69 +266,15 @@
 
                 <p>通过合理的文本切分策略、嵌入模型选择、检索融合方法以及提示词设计与评估，开发者可以显著提升RAG系统的性能和输出质量。</p>
             </div>
-        </article>
-    </main>
-
-    <footer class="footer py-16 mt-16">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <a href="../index.html" class="text-2xl font-bold text-white mb-8 inline-block">昨夜西风</a>
-                <p class="text-sm mb-8 opacity-80">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
-                <div class="flex justify-center space-x-8 mb-8">
-                    <a href="../index.html" class="text-gray-400 hover:text-white transition duration-300">
-                        <span class="sr-only">首页</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"></path>
-                        </svg>
-                    </a>
-                    <a href="index.html" class="text-gray-400 hover:text-white transition duration-300">
-                        <span class="sr-only">博客</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
         </div>
-    </footer>
-
+        
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。 | <a href="../index.html">返回首页</a></p>
+        </footer>
+    </div>
+    
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // 滚动指示器
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollIndicator').style.width = scrolled + '%';
-        });
-        
-        // 暗黑模式切换
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // 检查本地存储中的暗黑模式设置
-        if (localStorage.getItem('darkMode') === 'true') {
-            body.classList.add('dark');
-            darkModeToggle.classList.add('active');
-        } else if (localStorage.getItem('darkMode') === 'false') {
-            body.classList.remove('dark');
-            body.classList.remove('auto-dark');
-            darkModeToggle.classList.remove('active');
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            
-            if (this.classList.contains('active')) {
-                body.classList.add('dark');
-                body.classList.remove('auto-dark');
-                localStorage.setItem('darkMode', 'true');
-            } else {
-                body.classList.remove('dark');
-                localStorage.setItem('darkMode', 'false');
-            }
-        });
     </script>
 </body>
 </html>

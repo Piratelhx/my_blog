@@ -6,249 +6,161 @@
     <title>Google I/O 2024后的AI格局变化 - 昨夜西风</title>
     <meta name="description" content="深度分析Google I/O 2024发布会对AI行业格局的影响">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 移动端阅读优化样式 */
-        @media (max-width: 768px) {
-            .article-content {
-                font-size: 17px !important;
-                line-height: 1.7 !important;
-                letter-spacing: 0.3px;
-            }
-            
-            .article-content p {
-                margin-bottom: 1.2rem !important;
-                text-align: justify;
-            }
-            
-            .article-content h1 {
-                font-size: 1.75rem !important;
-                line-height: 1.3 !important;
-                margin: 1.5rem 0 1rem 0 !important;
-                font-weight: 700;
-            }
-            
-            .article-content h2 {
-                font-size: 1.4rem !important;
-                line-height: 1.4 !important;
-                margin: 1.5rem 0 0.8rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content h3 {
-                font-size: 1.2rem !important;
-                line-height: 1.4 !important;
-                margin: 1.2rem 0 0.6rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content ul, .article-content ol {
-                margin: 1rem 0 1.2rem 0 !important;
-                padding-left: 1.2rem !important;
-            }
-            
-            .article-content li {
-                margin-bottom: 0.6rem !important;
-                line-height: 1.6 !important;
-            }
-            
-            .article-content strong {
-                font-weight: 600;
-                color: #1f2937;
-            }
-            
-            .dark .article-content strong {
-                color: #f9fafb;
-            }
-            
-            /* 标签样式优化 */
-            .article-content .tag {
-                display: inline-block;
-                padding: 0.25rem 0.75rem;
-                margin: 0.25rem 0.25rem 0.25rem 0;
-                background-color: #f3f4f6;
-                color: #374151;
-                border-radius: 1rem;
-                font-size: 0.75rem;
-                font-weight: 500;
-            }
-            
-            .dark .article-content .tag {
-                background-color: #374151;
-                color: #d1d5db;
-            }
-            
-            /* 容器宽度优化 */
-            .container {
-                max-width: 100% !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            
-            main {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-            }
-            
-            /* 背景色优化 */
-            body {
-                background-color: #fefefe;
-            }
-            
-            .dark body {
-                background-color: #111827;
-            }
-        }
-        
-        /* 桌面端保持原有样式 */
-        @media (min-width: 769px) {
-            .article-content {
-                font-size: 16px;
-                line-height: 1.6;
-            }
-        }
-        
-        /* 其他原有样式保持不变 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.8;
         }
-        
-        .scroll-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            z-index: 9999;
-            transition: width 0.3s ease;
+        .content-wrapper {
+            flex-grow: 1;
         }
-        
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: #3b82f6;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
+        .back-link {
             background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        .dark-mode-toggle {
-            width: 50px;
-            height: 25px;
-            background-color: #e5e7eb;
-            border-radius: 25px;
-            position: relative;
-            cursor: pointer;
+            color: white;
             transition: background-color 0.3s ease;
         }
-        
-        .dark-mode-toggle.active {
-            background-color: #3b82f6;
+        .back-link:hover {
+            background-color: #2563eb;
         }
-        
-        .toggle-handle {
-            width: 21px;
-            height: 21px;
-            background-color: white;
-            border-radius: 50%;
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .dark-mode-toggle.active .toggle-handle {
-            transform: translateX(25px);
-        }
-        
         .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background-color: #f8f9fa;
+            color: #666;
+            border-top: 1px solid #e9ecef;
         }
         
-        .article-content h1, .article-content h2, .article-content h3 {
-            color: #1f2937;
+        /* 博客内容样式 */
+        .blog-content {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
         }
         
-        .dark .article-content h1, .dark .article-content h2, .dark .article-content h3 {
-            color: #f9fafb;
+        .blog-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            line-height: 1.4;
         }
         
-        .article-content p {
-            margin-bottom: 1rem;
+        .blog-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            line-height: 1.4;
         }
         
-        .article-content ul, .article-content ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+        .blog-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            text-align: justify;
         }
         
-        .article-content li {
-            margin-bottom: 0.5rem;
+        .blog-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .blog-content li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+        
+        .blog-content strong {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .blog-content {
+                font-size: 16px;
+                line-height: 1.75;
+            }
+            
+            .blog-content h2 {
+                font-size: 18px;
+                margin-top: 28px;
+                margin-bottom: 14px;
+            }
+            
+            .blog-content h3 {
+                font-size: 17px;
+                margin-top: 24px;
+                margin-bottom: 12px;
+            }
+            
+            .blog-content p {
+                margin-bottom: 18px;
+            }
+            
+            .blog-content ul {
+                margin-bottom: 18px;
+                padding-left: 18px;
+            }
+        }
+        
+        /* 超小屏幕优化 */
+        @media (max-width: 480px) {
+            .blog-content {
+                font-size: 15px;
+            }
+            
+            .blog-content h2 {
+                font-size: 17px;
+            }
+            
+            .blog-content h3 {
+                font-size: 16px;
+            }
+        }
+        
+        /* 标签样式 */
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: #f0f9ff;
+            color: #0369a1;
+            font-size: 12px;
+            border-radius: 4px;
+            margin-right: 6px;
+            margin-bottom: 4px;
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-    <div class="scroll-indicator" id="scrollIndicator"></div>
-    
-    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-2xl font-bold text-black dark:text-white flex items-center">
-                    <span>昨夜西风</span>
-                </a>
-                <div class="flex items-center space-x-8">
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="../index.html#about" class="nav-link text-gray-800 dark:text-gray-200 font-medium">关于我</a>
-                        <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 font-medium">博客</a>
-                    </nav>
-                    <div class="dark-mode-toggle" id="darkModeToggle">
-                        <div class="toggle-handle"></div>
-                    </div>
-                    <button class="md:hidden focus:outline-none text-gray-800 dark:text-gray-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+<body class="antialiased">
+
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="text-lg font-bold text-blue-600 hover:text-blue-700">昨夜西风</a>
+            <a href="index.html" class="back-link px-3 py-2 rounded-md text-sm font-medium">返回博客</a>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <article>
-            <header class="mb-12">
-                <div class="mb-6">
-                    <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">人工智能</span>
-                    <span class="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full ml-2">行业分析</span>
-                </div>
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Google I/O 2024后的AI格局变化</h1>
-                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                        2024年5月20日
-                    </span>
+    <main class="content-wrapper">
+        <article class="max-w-4xl mx-auto bg-white px-6 py-8">
+            <header class="mb-8">
+                <h1 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 leading-tight">🌐 Google I/O 2024后的AI格局变化</h1>
+                <div class="flex flex-col md:flex-row md:items-center text-gray-600 mb-6">
+                    <time datetime="2024-05-20" class="mb-3 md:mb-0 md:mr-6 text-sm">发布于：2024年5月20日</time>
+                    <div class="flex flex-wrap gap-1">
+                        <span class="tag">人工智能</span>
+                        <span class="tag">行业分析</span>
+                        <span class="tag">Google</span>
+                    </div>
                 </div>
             </header>
-
-            <div class="article-content text-gray-700 dark:text-gray-300">
+            
+            <div class="blog-content">
                 <p>Google I/O 2024开发者大会刚刚落下帷幕，这场备受瞩目的技术盛会再次展现了Google在人工智能领域的雄心壮志。从Gemini模型的全面升级到AI搜索的革命性改进，Google正在重新定义我们与信息交互的方式。</p>
 
                 <h2>🚀 Gemini生态的全面升级</h2>
@@ -271,12 +183,14 @@
 
                 <h2>💼 对企业和开发者的影响</h2>
                 <p>Google I/O 2024的发布对企业和开发者社区带来了多重影响：</p>
+                
                 <h3>机遇方面</h3>
                 <ul>
                     <li><strong>API生态丰富</strong>：Google提供了更多AI能力的API接口，降低了企业接入AI的门槛</li>
                     <li><strong>开发工具升级</strong>：Android Studio、Firebase等开发工具都集成了AI辅助功能</li>
                     <li><strong>云服务增强</strong>：Google Cloud Platform的AI服务得到全面升级</li>
                 </ul>
+                
                 <h3>挑战方面</h3>
                 <ul>
                     <li><strong>技术债务</strong>：现有系统可能需要大规模重构以适应新的AI范式</li>
@@ -309,66 +223,15 @@
         </article>
     </main>
 
-    <footer class="footer py-16 mt-16">
+    <footer class="footer py-6 text-center mt-auto">
         <div class="container mx-auto px-6">
-            <div class="text-center">
-                <a href="../index.html" class="text-2xl font-bold text-white mb-8 inline-block">昨夜西风</a>
-                <p class="text-sm mb-8 opacity-80">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
-                <div class="flex justify-center space-x-8 mb-8">
-                    <a href="../index.html" class="text-gray-400 hover:text-white transition duration-300">
-                        <span class="sr-only">首页</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"></path>
-                        </svg>
-                    </a>
-                    <a href="index.html" class="text-gray-400 hover:text-white transition duration-300">
-                        <span class="sr-only">博客</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+            <p class="text-sm">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
+            <a href="../index.html" class="text-sm text-blue-600 hover:text-blue-700">返回主页</a>
         </div>
     </footer>
-
+    
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-        
-        // 滚动指示器
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById('scrollIndicator').style.width = scrolled + '%';
-        });
-        
-        // 暗黑模式切换
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
-        
-        // 检查本地存储中的暗黑模式设置
-        if (localStorage.getItem('darkMode') === 'true') {
-            body.classList.add('dark');
-            darkModeToggle.classList.add('active');
-        } else if (localStorage.getItem('darkMode') === 'false') {
-            body.classList.remove('dark');
-            body.classList.remove('auto-dark');
-            darkModeToggle.classList.remove('active');
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
-            
-            if (this.classList.contains('active')) {
-                body.classList.add('dark');
-                body.classList.remove('auto-dark');
-                localStorage.setItem('darkMode', 'true');
-            } else {
-                body.classList.remove('dark');
-                localStorage.setItem('darkMode', 'false');
-            }
-        });
     </script>
 </body>
 </html>
