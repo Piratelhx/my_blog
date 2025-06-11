@@ -6,114 +6,65 @@
     <title>从算法到产品：我作为AI产品经理的6点思考 - 昨夜西风</title>
     <meta name="description" content="从算法工程师转向AI产品经理的心路历程，分享技术与产品结合的6点深度思考">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* 移动端阅读优化样式 */
-        @media (max-width: 768px) {
-            .article-content {
-                font-size: 17px !important;
-                line-height: 1.7 !important;
-                letter-spacing: 0.3px;
-            }
-            
-            .article-content p {
-                margin-bottom: 1.2rem !important;
-                text-align: justify;
-            }
-            
-            .article-content h1 {
-                font-size: 1.75rem !important;
-                line-height: 1.3 !important;
-                margin: 1.5rem 0 1rem 0 !important;
-                font-weight: 700;
-            }
-            
-            .article-content h2 {
-                font-size: 1.4rem !important;
-                line-height: 1.4 !important;
-                margin: 1.5rem 0 0.8rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content h3 {
-                font-size: 1.2rem !important;
-                line-height: 1.4 !important;
-                margin: 1.2rem 0 0.6rem 0 !important;
-                font-weight: 600;
-            }
-            
-            .article-content ul, .article-content ol {
-                margin: 1rem 0 1.2rem 0 !important;
-                padding-left: 1.2rem !important;
-            }
-            
-            .article-content li {
-                margin-bottom: 0.6rem !important;
-                line-height: 1.6 !important;
-            }
-            
-            .article-content strong {
-                font-weight: 600;
-                color: #1f2937;
-            }
-            
-            .dark .article-content strong {
-                color: #f9fafb;
-            }
-            
-            /* 容器宽度优化 */
-            .container {
-                max-width: 100% !important;
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-            
-            main {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-            }
-            
-            /* 背景色优化 */
-            body {
-                background-color: #fefefe;
-            }
-            
-            .dark body {
-                background-color: #111827;
-            }
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
         
-        /* 桌面端保持原有样式 */
-        @media (min-width: 769px) {
-            .article-content {
-                font-size: 16px;
-                line-height: 1.6;
-            }
+        .dark {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --border-color: #374151;
         }
         
-        /* 其他原有样式保持不变 */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            line-height: 1.7;
         }
         
+        /* 美化滚动指示器 */
         .scroll-indicator {
             position: fixed;
             top: 0;
             left: 0;
             width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             z-index: 9999;
             transition: width 0.3s ease;
+            box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
         }
         
+        /* 美化导航 */
         .nav-link {
             position: relative;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
         }
         
         .nav-link:hover {
-            color: #3b82f6;
+            color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
         }
         
         .nav-link::after {
@@ -121,118 +72,318 @@
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
+            bottom: 0;
+            left: 50%;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
         
         .nav-link:hover::after {
-            width: 100%;
+            width: 80%;
         }
         
+        /* 美化暗色模式切换 */
         .dark-mode-toggle {
-            width: 50px;
-            height: 25px;
-            background-color: #e5e7eb;
-            border-radius: 25px;
+            width: 60px;
+            height: 30px;
+            background: var(--border-color);
+            border-radius: 30px;
             position: relative;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode-toggle:hover {
+            transform: scale(1.05);
         }
         
         .dark-mode-toggle.active {
-            background-color: #3b82f6;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
         
         .toggle-handle {
-            width: 21px;
-            height: 21px;
-            background-color: white;
+            width: 26px;
+            height: 26px;
+            background: white;
             border-radius: 50%;
             position: absolute;
             top: 2px;
             left: 2px;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
         }
         
         .dark-mode-toggle.active .toggle-handle {
-            transform: translateX(25px);
+            transform: translateX(30px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
-        .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+        /* 美化文章容器 */
+        .article-container {
+            background: var(--bg-primary);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .article-content h1, .article-content h2, .article-content h3 {
-            color: #1f2937;
+        .article-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
         }
         
-        .dark .article-content h1, .dark .article-content h2, .dark .article-content h3 {
-            color: #f9fafb;
+        /* 美化文章头部 */
+        .article-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            padding: 3rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23000" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            pointer-events: none;
+        }
+        
+        /* 美化标签 */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .tag:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .tag-ai {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1e40af;
+            border-color: #93c5fd;
+        }
+        
+        .tag-product {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            color: #374151;
+            border-color: #d1d5db;
+        }
+        
+        .dark .tag-ai {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: #bfdbfe;
+        }
+        
+        .dark .tag-product {
+            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+            color: #d1d5db;
+        }
+        
+        /* 美化文章内容 */
+        .article-content {
+            padding: 2rem;
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .article-content h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
         
         .article-content p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            text-align: justify;
         }
         
-        .article-content ul, .article-content ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+        
+        .article-content ul {
+            margin: 1.5rem 0;
+            padding-left: 0;
         }
         
         .article-content li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+        
+        .article-content li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 0.875rem;
+        }
+        
+        /* 美化日期显示 */
+        .date-display {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 2rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        /* 美化页脚 */
+        .footer {
+            background: var(--gradient-primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23fff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+            pointer-events: none;
+        }
+        
+        .footer-icon {
+            transition: all 0.3s ease;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-icon:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px) scale(1.1);
+        }
+        
+        /* 响应式优化 */
+        @media (max-width: 768px) {
+            .article-container {
+                margin: 1rem;
+                border-radius: 1rem;
+            }
+            
+            .article-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+            
+            .article-content {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1rem;
+            }
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body>
     <div class="scroll-indicator" id="scrollIndicator"></div>
     
-    <header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90">
+    <header class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200/50 dark:border-gray-700/50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="../index.html" class="text-2xl font-bold text-black dark:text-white flex items-center">
-                    <span>昨夜西风</span>
+                <a href="../index.html" class="text-2xl font-bold text-black dark:text-white flex items-center hover:scale-105 transition-transform">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">昨夜西风</span>
                 </a>
-                <div class="flex items-center space-x-8">
-                    <nav class="hidden md:flex space-x-8">
-                        <a href="../index.html#about" class="nav-link text-gray-800 dark:text-gray-200 font-medium">关于我</a>
-                        <a href="index.html" class="nav-link text-gray-800 dark:text-gray-200 font-medium">博客</a>
+                <div class="flex items-center space-x-6">
+                    <nav class="hidden md:flex space-x-2">
+                        <a href="../index.html#about" class="nav-link text-gray-700 dark:text-gray-300 font-medium">关于我</a>
+                        <a href="index.html" class="nav-link text-gray-700 dark:text-gray-300 font-medium">博客</a>
                     </nav>
                     <div class="dark-mode-toggle" id="darkModeToggle">
                         <div class="toggle-handle"></div>
                     </div>
-                    <button class="md:hidden focus:outline-none text-gray-800 dark:text-gray-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12 max-w-4xl">
-        <article>
-            <header class="mb-12">
+    <main class="container mx-auto px-6 py-8 max-w-4xl">
+        <div class="article-container fade-in-up">
+            <header class="article-header">
                 <div class="mb-6">
-                    <span class="inline-block px-3 py-1 bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs font-medium rounded-full">人工智能</span>
-                    <span class="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs font-medium rounded-full ml-2">产品管理</span>
+                    <span class="tag tag-ai mr-3">🤖 人工智能</span>
+                    <span class="tag tag-product">📊 产品管理</span>
                 </div>
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">从算法到产品：我作为AI产品经理的6点思考</h1>
-                <div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                    <span class="flex items-center">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path></svg>
-                        2025年6月9日
-                    </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white leading-tight">
+                    从算法到产品：我作为AI产品经理的6点思考
+                </h1>
+                <div class="date-display">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                    </svg>
+                    2025年6月9日
                 </div>
             </header>
 
-            <div class="article-content text-gray-700 dark:text-gray-300">
-                <p>大家好，我是一名AI产品经理。读研时，我曾一头扎进AI算法的海洋，每天与模型、数据和代码为伴，坚信好的技术能改变世界。但当我真正从算法岗位转向产品岗位后，我才深刻体会到，能写出优雅的算法，和能做出优秀的产品，是两种截然不同的修行。</p>
+            <div class="article-content">
+                <p class="text-xl mb-8 font-medium text-gray-600 dark:text-gray-400 italic border-l-4 border-blue-500 pl-6 bg-blue-50/50 dark:bg-blue-900/20 py-4 rounded-r-lg">
+                    大家好，我是一名AI产品经理。读研时，我曾一头扎进AI算法的海洋，每天与模型、数据和代码为伴，坚信好的技术能改变世界。但当我真正从算法岗位转向产品岗位后，我才深刻体会到，能写出优雅的算法，和能做出优秀的产品，是两种截然不同的修行。
+                </p>
 
                 <p>技术是冰冷的逻辑，而产品是有温度的连接。这个过程中，我逐渐摸索出一套连接技术与用户的思维框架，想在这里和大家分享，特别是希望能给那些和我一样有技术背景、并有志于产品工作的朋友一些启发。</p>
 
@@ -256,7 +407,7 @@
 
                 <p>就像稻盛和夫先生说的，<strong>"神明在现场"</strong>。</p>
 
-                <p><strong>对于开发者用户：</strong> 因为我写过代码，我能切身体会体察到他们对效率的极致追求。为他们设计AI辅助工具时，我会格外关注快捷键、响应速度和工作流的无缝集成。</p>
+                <p><strong>对于开发者用户：</strong> 因为我写过代码，我能切身体会体察到他们对效率的极致追求。为我设计AI辅助工具时，我会格外关注快捷键、响应速度和工作流的无缝集成。</p>
 
                 <p><strong>对于普通用户：</strong> 我会刻意忘记自己的技术背景，把自己想象成一个第一次接触AI的小白。他们要的不是我能解释背后的模型有多牛，而是"这个东西能不能帮我省事？"，简单、直接、可靠，比什么都重要。</p>
 
@@ -267,7 +418,7 @@
 
                 <p>我逐渐学会了放下这种"我执"，去真正尊重市场的多样性。这个世界上，有对AI如数家珍的极客，更有把AI当成"魔法盒子"的普通人。他们的声音，无论听起来多么"初级"或"不合理"，都值得被认真倾听。</p>
 
-                <p>因为那些"抱怨"和"困惑"的背后，往往隐藏着最真实的产品优化方向。放下分别心，用平等的姿态去理解每一种用户，才能做出真正有普适价值的产品。</p>
+                <p>因为那些"抱怨"和"困惑"Backgrounds behind the AI, and the challenges of implementing the AI, are the key to understanding the AI.</p>
 
                 <h2>4. 🎨 培养技术之外的"产品审美"</h2>
                 <p>审美，是我工作后努力培养的另一种"肌肉"。在AI生成内容（AIGC）的时代，这一点尤为重要。</p>
@@ -300,26 +451,32 @@
 
                 <p>当你真心实意地想通过产品去帮助用户时，你会发现，所有的沟通都会变得真诚，所有的决策都会变得清晰。用户能感受到这份用心，他们会把你当成伙伴，而不仅仅是一个"卖软件的"。这种与用户共同成长的感觉，是产品工作最迷人的地方。</p>
 
-                <p>从算法到产品，这条路充满了挑战，但也让我看到了一个更宽广、更立体的世界。技术是基石，但唯有与真实的人类需求相结合，才能绽放出最耀眼的光芒。希望我的这些心得，能给朋友们带来一些启发。</p>
+                <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl border border-blue-200/50 dark:border-blue-700/50 mt-8">
+                    <p class="text-lg font-medium text-gray-800 dark:text-gray-200 mb-0">
+                        从算法到产品，这条路充满了挑战，但也让我看到了一个更宽广、更立体的世界。技术是基石，但唯有与真实的人类需求相结合，才能绽放出最耀眼的光芒。希望我的这些心得，能给朋友们带来一些启发。
+                    </p>
+                </div>
             </div>
-        </article>
+        </div>
     </main>
 
-    <footer class="footer py-16 mt-16">
-        <div class="container mx-auto px-6">
+    <footer class="footer py-20 mt-20">
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center">
-                <a href="../index.html" class="text-2xl font-bold text-white mb-8 inline-block">昨夜西风</a>
-                <p class="text-sm mb-8 opacity-80">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
-                <div class="flex justify-center space-x-8 mb-8">
-                    <a href="../index.html" class="text-gray-400 hover:text-white transition duration-300">
+                <a href="../index.html" class="text-3xl font-bold text-white mb-8 inline-block hover:scale-105 transition-transform">
+                    <span class="bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">昨夜西风</span>
+                </a>
+                <p class="text-lg mb-8 opacity-90">&copy; <span id="currentYear"></span> 昨夜西风, 保留所有权利。</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="../index.html" class="footer-icon text-white hover:text-blue-200 transition-all">
                         <span class="sr-only">首页</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"></path>
                         </svg>
                     </a>
-                    <a href="index.html" class="text-gray-400 hover:text-white transition duration-300">
+                    <a href="index.html" class="footer-icon text-white hover:text-blue-200 transition-all">
                         <span class="sr-only">博客</span>
-                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
                         </svg>
                     </a>
@@ -364,6 +521,29 @@
                 body.classList.remove('dark');
                 localStorage.setItem('darkMode', 'false');
             }
+        });
+        
+        // 添加滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.article-content h2, .article-content p, .article-content ul').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
