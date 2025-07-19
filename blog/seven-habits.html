@@ -7,132 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/blog-common.css">
-    <style>
-        /* 自定义样式增强 */
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .habit-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 24px;
-            margin: 24px 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-        
-        .habit-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        
-        .habit-number {
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 16px;
-        }
-        
-        .section-divider {
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
-            border-radius: 2px;
-            margin: 32px 0;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-left: 4px solid #f59e0b;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        
-        .practice-tip {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-            border-left: 4px solid #3b82f6;
-            padding: 16px;
-            border-radius: 8px;
-            margin: 16px 0;
-        }
-        
-        .emoji-large {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background-color: #e5e7eb;
-            border-radius: 4px;
-            overflow: hidden;
-            margin: 16px 0;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #10b981, #059669);
-            border-radius: 4px;
-            animation: progressAnimation 2s ease-in-out;
-        }
-        
-        @keyframes progressAnimation {
-            from { width: 0%; }
-            to { width: var(--progress-width); }
-        }
-        
-        .floating-element {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .article-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 48px 24px;
-            border-radius: 20px;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-        
-        .article-title {
-            color: white !important;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .article-meta {
-            color: rgba(255,255,255,0.9);
-        }
-        
-        .tag {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .tag:hover {
-            background: rgba(255,255,255,0.3);
-        }
-    </style>
 </head>
 <body class="antialiased bg-gray-50">
 
@@ -144,510 +18,142 @@
     </header>
 
     <main class="content-wrapper">
-        <article class="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
+        <article class="max-w-4xl mx-auto bg-white">
             <div class="article-container">
                 <header class="article-header">
-                    <span class="emoji-large floating-element">📖</span>
                     <h1 class="article-title">《高效能人士的七个习惯》深度解读</h1>
                     <div class="article-meta">
                         <time datetime="2025-07-17" class="article-date">发布于：2025年7月17日</time>
-                        <div class="article-tags mt-4">
+                        <div class="article-tags">
                             <span class="tag">个人成长</span>
                             <span class="tag">效率提升</span>
-                            <span class="tag">领导力</span>
                             <span class="tag">自我管理</span>
                         </div>
                     </div>
                 </header>
                 
                 <div class="blog-content">
-                    <div class="highlight-box">
-                        <h2>📚 经典之作的时代价值</h2>
-                        <p>史蒂芬·柯维的《高效能人士的七个习惯》自1989年出版以来，已经影响了全球数千万读者。在这个快节奏、高压力的时代，这本书的核心理念依然具有强大的指导意义。今天，我们来深度解读这七个习惯，探讨如何在现代生活中实践这些永恒的智慧。</p>
-                    </div>
-                    
+                    <h2>📚 永恒智慧的当代回响</h2>
+                    <p>1989年，史蒂芬·柯维的《高效能人士的七个习惯》问世，犹如一束光，穿透迷雾，照亮了无数渴望成长与平衡的灵魂。时至今日，面对瞬息万变、充满不确定性的世界，这七个习惯不仅是行为指南，更是深刻的人生哲学。它提醒我们，真正的效能源自内在的原则，而非外在的技巧。它呼唤我们在喧
+                    响中寻找内心的宁静，重塑自我，实现从生存到卓越的飞跃。</p>
                     <blockquote>
-                        "播下一个行动，收获一种习惯；播下一种习惯，收获一种性格；播下一种性格，收获一种命运。" —— 史蒂芬·柯维
+                        \"播下一个行动，收获一种习惯；播下一种习惯，收获一种性格；播下一种性格，收获一种命运。\" —— 史蒂芬·柯维
                     </blockquote>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>🎯 七个习惯的整体框架</h2>
-                    
-                    <div class="habit-card">
-                        <h3>成熟模式的三个阶段</h3>
-                        <div class="grid md:grid-cols-3 gap-4 mt-4">
-                            <div class="text-center p-4 bg-red-50 rounded-lg">
-                                <span class="text-2xl">👶</span>
-                                <h4 class="font-semibold text-red-700">依赖期</h4>
-                                <p class="text-sm text-red-600">依靠别人来实现愿望</p>
-                            </div>
-                            <div class="text-center p-4 bg-blue-50 rounded-lg">
-                                <span class="text-2xl">🚀</span>
-                                <h4 class="font-semibold text-blue-700">独立期</h4>
-                                <p class="text-sm text-blue-600">依靠自己的努力来实现愿望</p>
-                            </div>
-                            <div class="text-center p-4 bg-green-50 rounded-lg">
-                                <span class="text-2xl">🤝</span>
-                                <h4 class="font-semibold text-green-700">互赖期</h4>
-                                <p class="text-sm text-green-600">集思广益来实现最高成就</p>
-                            </div>
-                        </div>
-                        <p class="mt-4 text-center text-gray-600">七个习惯正是帮助我们从依赖走向独立，再从独立走向互赖的成长路径。</p>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>🚀 个人领域的成功：习惯一到三</h2>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">1</div>
-                            <div class="flex-1">
-                                <h3>习惯一：积极主动 (Be Proactive)</h3>
-                                <p><strong>核心理念</strong>：人类最终的自由是选择自己态度的自由。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>🎯 关键要点：</h4>
-                                    <ul>
-                                        <li><strong>关注圈vs影响圈</strong>：将精力投入到能够影响的事情上</li>
-                                        <li><strong>刺激与回应之间的选择空间</strong>：在刺激和回应之间，我们有选择的自由</li>
-                                        <li><strong>承担责任</strong>：为自己的选择和行为负责</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>每天问自己："今天我能影响什么？"</li>
-                                        <li>用积极的语言替代消极的语言</li>
-                                        <li>专注于解决方案而非问题本身</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">2</div>
-                            <div class="flex-1">
-                                <h3>习惯二：以终为始 (Begin with the End in Mind)</h3>
-                                <p><strong>核心理念</strong>：所有事物都经过两次创造，先是在头脑中，然后才是在现实中。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>🎯 关键要点：</h4>
-                                    <ul>
-                                        <li><strong>个人使命宣言</strong>：明确自己的人生目标和价值观</li>
-                                        <li><strong>心智创造</strong>：在行动之前先在心中构建蓝图</li>
-                                        <li><strong>原则中心</strong>：以不变的原则为生活重心</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>写下个人使命宣言</li>
-                                        <li>设定长期目标，并定期回顾</li>
-                                        <li>在做重要决定时，问自己："这符合我的价值观吗？"</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">3</div>
-                            <div class="flex-1">
-                                <h3>习惯三：要事第一 (Put First Things First)</h3>
-                                <p><strong>核心理念</strong>：有效管理是把最重要的事放在第一位的艺术。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>📊 时间管理矩阵：</h4>
-                                    <div class="grid grid-cols-2 gap-4 mt-4">
-                                        <div class="p-4 bg-red-100 border-l-4 border-red-500 rounded">
-                                            <h5 class="font-semibold text-red-700">第一象限</h5>
-                                            <p class="text-sm text-red-600">重要且紧急（危机处理）</p>
-                                        </div>
-                                        <div class="p-4 bg-green-100 border-l-4 border-green-500 rounded">
-                                            <h5 class="font-semibold text-green-700">第二象限</h5>
-                                            <p class="text-sm text-green-600">重要但不紧急（预防、准备、计划）</p>
-                                        </div>
-                                        <div class="p-4 bg-yellow-100 border-l-4 border-yellow-500 rounded">
-                                            <h5 class="font-semibold text-yellow-700">第三象限</h5>
-                                            <p class="text-sm text-yellow-600">不重要但紧急（干扰、打断）</p>
-                                        </div>
-                                        <div class="p-4 bg-gray-100 border-l-4 border-gray-500 rounded">
-                                            <h5 class="font-semibold text-gray-700">第四象限</h5>
-                                            <p class="text-sm text-gray-600">不重要且不紧急（浪费时间）</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>将80%的时间投入第二象限活动</li>
-                                        <li>学会说"不"，拒绝第三、四象限的诱惑</li>
-                                        <li>每周制定计划，而非每日计划</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>🤝 公众领域的成功：习惯四到六</h2>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">4</div>
-                            <div class="flex-1">
-                                <h3>习惯四：双赢思维 (Think Win-Win)</h3>
-                                <p><strong>核心理念</strong>：双赢是一种基于互相respect、寻求互利的思考框架与心意。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>🎭 六种人际关系模式：</h4>
-                                    <div class="space-y-2">
-                                        <div class="flex items-center gap-3 p-3 bg-green-50 rounded-lg">
-                                            <span class="text-green-600">🏆</span>
-                                            <div>
-                                                <strong class="text-green-700">利人利己（双赢）</strong>
-                                                <p class="text-sm text-green-600">最理想的合作模式</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3 p-3 bg-red-50 rounded-lg">
-                                            <span class="text-red-600">⚔️</span>
-                                            <div>
-                                                <strong class="text-red-700">损人利己（赢/输）</strong>
-                                                <p class="text-sm text-red-600">竞争思维</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex items-center gap-3 p-3 bg-blue-50 rounded-lg">
-                                            <span class="text-blue-600">🤲</span>
-                                            <div>
-                                                <strong class="text-blue-700">损己利人（输/赢）</strong>
-                                                <p class="text-sm text-blue-600">讨好思维</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>在谈判中寻找第三选择</li>
-                                        <li>培养丰富心态，相信资源是充足的</li>
-                                        <li>建立双赢的绩效协议</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">5</div>
-                            <div class="flex-1">
-                                <h3>习惯五：知彼解己 (Seek First to Understand, Then to be Understood)</h3>
-                                <p><strong>核心理念</strong>：首先寻求去了解对方，然后再争取让对方了解自己。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>👂 倾听的五个层次：</h4>
-                                    <div class="space-y-3">
-                                        <div class="flex items-center gap-3">
-                                            <div class="progress-bar flex-1">
-                                                <div class="progress-fill" style="--progress-width: 20%;"></div>
-                                            </div>
-                                            <span class="text-sm font-medium">充耳不闻</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="progress-bar flex-1">
-                                                <div class="progress-fill" style="--progress-width: 40%;"></div>
-                                            </div>
-                                            <span class="text-sm font-medium">装模作样</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="progress-bar flex-1">
-                                                <div class="progress-fill" style="--progress-width: 60%;"></div>
-                                            </div>
-                                            <span class="text-sm font-medium">选择性倾听</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="progress-bar flex-1">
-                                                <div class="progress-fill" style="--progress-width: 80%;"></div>
-                                            </div>
-                                            <span class="text-sm font-medium">专注倾听</span>
-                                        </div>
-                                        <div class="flex items-center gap-3">
-                                            <div class="progress-bar flex-1">
-                                                <div class="progress-fill" style="--progress-width: 100%;"></div>
-                                            </div>
-                                            <span class="text-sm font-medium text-green-600">移情倾听</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>练习移情倾听技巧</li>
-                                        <li>在表达观点前，先确认理解了对方</li>
-                                        <li>用对方能理解的方式表达自己</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">6</div>
-                            <div class="flex-1">
-                                <h3>习惯六：统合综效 (Synergize)</h3>
-                                <p><strong>核心理念</strong>：统合综效就是创造性合作的原则，即整体大于部分之和。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>🔗 统合综效的条件：</h4>
-                                    <div class="grid md:grid-cols-3 gap-4 mt-4">
-                                        <div class="text-center p-4 bg-blue-50 rounded-lg">
-                                            <span class="text-2xl">🤝</span>
-                                            <h5 class="font-semibold text-blue-700">高度信任</h5>
-                                            <p class="text-sm text-blue-600">团队成员之间相互信任</p>
-                                        </div>
-                                        <div class="text-center p-4 bg-green-50 rounded-lg">
-                                            <span class="text-2xl">💬</span>
-                                            <h5 class="font-semibold text-green-700">开放沟通</h5>
-                                            <p class="text-sm text-green-600">能够坦诚表达不同观点</p>
-                                        </div>
-                                        <div class="text-center p-4 bg-purple-50 rounded-lg">
-                                            <span class="text-2xl">💡</span>
-                                            <h5 class="font-semibold text-purple-700">创新思维</h5>
-                                            <p class="text-sm text-purple-600">愿意探索新的可能性</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>珍视差异，将其视为力量源泉</li>
-                                        <li>在团队中营造心理安全感</li>
-                                        <li>鼓励头脑风暴和创新思考</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>🔄 持续更新：习惯七</h2>
-                    
-                    <div class="habit-card">
-                        <div class="flex items-start gap-4">
-                            <div class="habit-number">7</div>
-                            <div class="flex-1">
-                                <h3>习惯七：不断更新 (Sharpen the Saw)</h3>
-                                <p><strong>核心理念</strong>：不断更新是一个上升的螺旋式过程，让我们在更高层次上理解和实践前六个习惯。</p>
-                                
-                                <div class="practice-tip">
-                                    <h4>🔄 四个更新维度：</h4>
-                                    <div class="grid md:grid-cols-2 gap-4 mt-4">
-                                        <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span class="text-xl">💪</span>
-                                                <h5 class="font-semibold text-red-700">身体维度</h5>
-                                            </div>
-                                            <p class="text-sm text-red-600">运动、营养、压力管理</p>
-                                        </div>
-                                        <div class="p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span class="text-xl">🧘</span>
-                                                <h5 class="font-semibold text-blue-700">精神维度</h5>
-                                            </div>
-                                            <p class="text-sm text-blue-600">价值澄清、学习、冥想</p>
-                                        </div>
-                                        <div class="p-4 bg-green-50 border-l-4 border-green-500 rounded">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span class="text-xl">🧠</span>
-                                                <h5 class="font-semibold text-green-700">智力维度</h5>
-                                            </div>
-                                            <p class="text-sm text-green-600">阅读、写作、思考、计划</p>
-                                        </div>
-                                        <div class="p-4 bg-purple-50 border-l-4 border-purple-500 rounded">
-                                            <div class="flex items-center gap-2 mb-2">
-                                                <span class="text-xl">❤️</span>
-                                                <h5 class="font-semibold text-purple-700">社会/情感维度</h5>
-                                            </div>
-                                            <p class="text-sm text-purple-600">服务、移情、统合综效</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="practice-tip">
-                                    <h4>💡 实践建议：</h4>
-                                    <ul>
-                                        <li>制定个人更新计划</li>
-                                        <li>每天在四个维度上都有所投入</li>
-                                        <li>将更新活动安排在第二象限</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>💡 现代应用与思考</h2>
-                    
-                    <div class="habit-card">
-                        <h3>🌐 数字时代的挑战</h3>
-                        <p>在信息爆炸的时代，七个习惯面临新的挑战：</p>
-                        <div class="grid md:grid-cols-3 gap-4 mt-4">
-                            <div class="p-4 bg-orange-50 rounded-lg text-center">
-                                <span class="text-2xl">📱</span>
-                                <h4 class="font-semibold text-orange-700 mt-2">注意力分散</h4>
-                                <p class="text-sm text-orange-600">社交媒体和通知不断干扰我们的专注</p>
-                            </div>
-                            <div class="p-4 bg-red-50 rounded-lg text-center">
-                                <span class="text-2xl">⚡</span>
-                                <h4 class="font-semibold text-red-700 mt-2">即时满足</h4>
-                                <p class="text-sm text-red-600">快节奏生活让我们难以坚持长期目标</p>
-                            </div>
-                            <div class="p-4 bg-purple-50 rounded-lg text-center">
-                                <span class="text-2xl">👥</span>
-                                <h4 class="font-semibold text-purple-700 mt-2">虚拟关系</h4>
-                                <p class="text-sm text-purple-600">线上交流可能影响深度倾听和移情能力</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <h3>🛡️ 适应性策略</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4 p-4 bg-blue-50 rounded-lg">
-                                <span class="text-2xl">🧹</span>
-                                <div>
-                                    <h4 class="font-semibold text-blue-700">数字断舍离</h4>
-                                    <p class="text-blue-600">定期断开数字设备，专注重要事务</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 bg-green-50 rounded-lg">
-                                <span class="text-2xl">🧘‍♂️</span>
-                                <div>
-                                    <h4 class="font-semibold text-green-700">正念练习</h4>
-                                    <p class="text-green-600">通过冥想等方式提高自我觉察</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-4 bg-purple-50 rounded-lg">
-                                <span class="text-2xl">🎯</span>
-                                <div>
-                                    <h4 class="font-semibold text-purple-700">深度工作</h4>
-                                    <p class="text-purple-600">创造无干扰的工作环境</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <h2>🎯 实践路线图</h2>
-                    
-                    <div class="habit-card">
-                        <h3>📅 30天习惯养成计划</h3>
-                        <div class="space-y-4 mt-4">
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg">
-                                <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
-                                <div>
-                                    <h4 class="font-semibold text-blue-700">第1-5天</h4>
-                                    <p class="text-blue-600">专注习惯一，练习积极主动的语言和思维</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg">
-                                <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
-                                <div>
-                                    <h4 class="font-semibold text-green-700">第6-10天</h4>
-                                    <p class="text-green-600">制定个人使命宣言，明确人生目标</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg">
-                                <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
-                                <div>
-                                    <h4 class="font-semibold text-purple-700">第11-15天</h4>
-                                    <p class="text-purple-600">实践时间管理矩阵，专注第二象限活动</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg">
-                                <div class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
-                                <div>
-                                    <h4 class="font-semibold text-orange-700">第16-20天</h4>
-                                    <p class="text-orange-600">在人际交往中寻求双赢解决方案</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-lg">
-                                <div class="bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">5</div>
-                                <div>
-                                    <h4 class="font-semibold text-red-700">第21-25天</h4>
-                                    <p class="text-red-600">练习移情倾听，提高沟通质量</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg">
-                                <div class="bg-indigo-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">6</div>
-                                <div>
-                                    <h4 class="font-semibold text-indigo-700">第26-30天</h4>
-                                    <p class="text-indigo-600">在团队合作中创造统合综效</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="habit-card">
-                        <h3>📈 长期发展建议</h3>
-                        <div class="grid md:grid-cols-2 gap-6 mt-4">
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-green-500">✅</span>
-                                    <span>建立习惯追踪系统</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <span class="text-green-500">✅</span>
-                                    <span>寻找实践伙伴或导师</span>
-                                </div>
-                            </div>
-                            <div class="space-y-3">
-                                <div class="flex items-center gap-3">
-                                    <span class="text-green-500">✅</span>
-                                    <span>定期回顾和调整</span>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <span class="text-green-500">✅</span>
-                                    <span>将习惯融入日常工作和生活</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="section-divider"></div>
-                    
-                    <div class="highlight-box text-center">
-                        <h2>🌟 结语：从知道到做到</h2>
-                        
-                        <p>《高效能人士的七个习惯》不仅仅是一本书，更是一套完整的人生哲学和实践体系。真正的价值不在于理解这些概念，而在于将它们转化为日常行为。</p>
-                        
-                        <p>记住，习惯的力量在于重复。每一个小的改变，经过时间的积累，都会产生巨大的影响。从今天开始，选择一个习惯，坚持实践，你会发现自己正在向更高效能的人生迈进。</p>
-                        
-                        <blockquote class="mt-6">
-                            "我们的品格基本上是我们习惯的合成。俗语说：思想决定行动，行动决定习惯，习惯决定品格，品格决定命运。" —— 史蒂芬·柯维
-                        </blockquote>
-                        
-                        <div class="mt-8 p-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl">
-                            <h3 class="text-xl font-bold mb-4">🚀 行动起来</h3>
-                            <p class="text-lg">选择一个最需要改进的领域，从相应的习惯开始实践。记住，改变从现在开始，成功从习惯开始。</p>
-                        </div>
-                    </div>
+                    <h2>🎯 从依赖到互赖的生命历程</h2>
+                    <h3>成熟的三重境界</h3>
+                    <ul>
+                        <li><strong>依赖阶段</strong>：如婴孩般依赖外界力量，生命受制于环境的摆布。</li>
+                        <li><strong>独立阶段</strong>：觉醒自我力量，凭借意志塑造命运，成为自己人生的主宰。</li>
+                        <li><strong>互赖阶段</strong>：超越个体的局限，借助集体智慧，创造更伟大的价值。</li>
+                    </ul>
+                    <p>这七个习惯构筑了一条灵魂的进化之路，引导我们从被动回应世界，到主动创造意义，最终在互惠中绽放潜能，成就非凡人生。</p>
+                    <h2>🚀 内在革命：前三个习惯</h2>
+                    <h3>习惯一：积极主动</h3>
+                    <p><strong>核心洞见</strong>：在刺激与回应之间，蕴藏着人类最深刻的自由——选择的自由。这不仅是一种态度，更是存在主义的宣言：我们不是环境的囚徒，而是命运的建筑师。</p>
+                    <h4>深刻要点：</h4>
+                    <ul>
+                        <li><strong>关注圈与影响圈</strong>：辨识界限，将能量倾注于可掌控之域，避免无谓的耗散与焦虑。</li>
+                        <li><strong>选择的间隙</strong>：每一次暂停，都是重获主权的时刻，是自由的体现。</li>
+                        <li><strong>责任的觉醒</strong>：承认选择即责任，方能从受害者转变为创造者，掌握人生主动权。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>每日冥想：\"今日何处可施展我的影响？\"</li>
+                        <li>语言重塑：以\"我选择\"取代\"我必须\"，赋予行动以力量。</li>
+                        <li>逆境转化：视挑战为成长的催化剂，拥抱变化，超越自我。</li>
+                    </ul>
+                    <h3>习惯二：以终为始</h3>
+                    <p><strong>核心洞见</strong>：生命如画卷，先在心智中勾勒，方能在现实中展开。这习惯呼唤我们审视存在的终极目的，避开浅层追求，追寻永恒的价值与意义。</p>
+                    <h4>深刻要点：</h4>
+                    <ul>
+                        <li><strong>使命宣言</strong>：如人生宪章，锚定灵魂的方向，指引行动的坐标。</li>
+                        <li><strong>心智创造</strong>：预见结局，方能逆向工程当下，避免盲目奔波。</li>
+                        <li><strong>原则中心</strong>：在变幻中坚守不变，成就内在的宁静与力量。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>撰写使命：描绘理想墓志铭，反思当下足迹与价值。</li>
+                        <li>目标锚定：每周审视，校准航向，确保行动与使命一致。</li>
+                        <li>价值检验：每决策皆问，\"这将如何定义我的遗产？\"</li>
+                    </ul>
+                    <h3>习惯三：要事第一</h3>
+                    <p><strong>核心洞见</strong>：时间非资源，而是生命的镜像。优先要事，乃是拒绝琐碎、拥抱本质的艺术，引领我们从忙碌中升华为有意义的存在。</p>
+                    <h4>时间矩阵的启示：</h4>
+                    <ul>
+                        <li><strong>第一象限</strong>：危机四伏，消耗生命的能量与平衡。</li>
+                        <li><strong>第二象限</strong>：孕育未来，铸就卓越的基石。</li>
+                        <li><strong>第三象限</strong>：幻影干扰，窃取焦点与时间。</li>
+                        <li><strong>第四象限</strong>：虚空浪费，侵蚀潜力与生命力。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>象限迁移：倾力第二象限，筑牢预防与成长的防线。</li>
+                        <li>勇敢拒绝：对非本质说\"不\"，是为本质说\"是\"。</li>
+                        <li>周度节奏：以周为单位，编织长远的生命织锦，避免短视行为。</li>
+                    </ul>
+                    <h2>🤝 关系炼金术：中间三个习惯</h2>
+                    <h3>习惯四：双赢思维</h3>
+                    <p><strong>核心洞见</strong>：双赢不仅是策略，更是世界观的转变。它揭示：丰盛宇宙中，成功无需以他人失败为代价，而是共同升华的交响乐。</p>
+                    <h4>关系范式：</h4>
+                    <ul>
+                        <li>双赢：和谐共荣，彼此成就。</li>
+                        <li>赢输：零和博弈的幻觉，制造对立。</li>
+                        <li>输赢：自我牺牲的陷阱，失去平衡。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>第三路径：超越二元对立，创新共赢方案。</li>
+                        <li>丰盛心态：视资源为无限，分享即倍增。</li>
+                        <li>协议铸造：构建互信的桥梁，促进合作。</li>
+                    </ul>
+                    <h3>习惯五：先理解他人，再求被理解</h3>
+                    <p><strong>核心洞见</strong>：倾听是连接的桥梁，共情是开启心灵的钥匙。它教导我们：真正的沟通源于放下自我，进入他人的世界，化解冲突，筑就深刻联结。</p>
+                    <h4>倾听的阶梯：</h4>
+                    <ul>
+                        <li>忽略：关系的绝缘体，阻断理解。</li>
+                        <li>假装：表面的伪装，缺乏真诚。</li>
+                        <li>选择性：带有偏见的过滤，片面理解。</li>
+                        <li>专注：理性的倾听，理解表层信息。</li>
+                        <li>共情：灵魂的交融，深刻理解对方情感。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>复述镜像：映照对方内心，确认理解。</li>
+                        <li>情感共振：感同身受，建立信任。</li>
+                        <li>摒弃自传：以纯净之心倾听，避免自我中心。</li>
+                    </ul>
+                    <h3>习惯六：统合综效</h3>
+                    <p><strong>核心洞见</strong>：综效是宇宙的秘密——差异非分歧，而是创造力的源泉。它邀请我们拥抱多元，在碰撞中诞生超越个体的智慧。</p>
+                    <h4>深刻要点：</h4>
+                    <ul>
+                        <li>respect差异：视异见为宝藏，激发创新。</li>
+                        <li>第三路径：创新的诞生地，超越传统思维。</li>
+                        <li>协同创造：整体胜于部分，合力成就非凡。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>多元对话：欢迎异议，激发思想火花。</li>
+                        <li>优势融合：编织集体天才，创造卓越成果。</li>
+                        <li>谦逊开放：放下自我，拥抱无限可能。</li>
+                    </ul>
+                    <h2>🔄 永续之轮：第七习惯</h2>
+                    <h3>习惯七：不断更新</h3>
+                    <p><strong>核心洞见</strong>：更新非修补，而是重生。它昭示：生命如利刃，须持续磨砺，方能在身体、精神、心智与社会四个维度维持活力，实现可持续的卓越。</p>
+                    <h4>更新的四维：</h4>
+                    <ul>
+                        <li><strong>身体</strong>：如神圣的殿堂，需悉心呵护，铸就坚韧躯壳。</li>
+                        <li><strong>精神</strong>：灵魂的滋养，点亮内在之光，指引方向。</li>
+                        <li><strong>心智</strong>：智慧的耕耘，拓展认知边界，激发创造力。</li>
+                        <li><strong>社会/情感</strong>：关系的园地，收获爱与联结，构筑支持系统。</li>
+                    </ul>
+                    <h4>生命实践：</h4>
+                    <ul>
+                        <li>每日仪式：如艺术家般雕琢自我，精炼生命之美。</li>
+                        <li>平衡蓝图：编织全面成长的织锦，避免偏废。</li>
+                        <li>投资视角：视更新为灵魂的复利，积少成多。</li>
+                    </ul>
+                    <h2>💡 永恒的召唤</h2>
+                    <p>《高效能人士的七个习惯》不仅是一本书，更是一场生命的邀请。它呼唤我们超越表象，拥抱原则驱动的人生。在实践这些习惯的过程中，我们将经历内在的革命：从混沌到清晰，从孤立到联结，最终成就一个深刻而有影响力的存在。记住，改变始于当下，每一个习惯都是通往自由的阶梯。</p>
                 </div>
             </div>
         </article>
